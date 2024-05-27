@@ -16,21 +16,21 @@
   <meta name="author" content="Anh Tinh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="合并链表题目描述 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。示例1：输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4##	思路：###	遍历判断：1.	创建一个伪头结点node，创建一个cur指向头结点。循环遍历结束条件为两个链表其中有一个为空。2.	遍历l1,l2，将其数值小的节点接">
+    <meta name="description" content="题目描述 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。示例1：输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4##	思路：###	遍历判断：1.	创建一个伪头结点node，创建一个cur指向头结点。循环遍历结束条件为两个链表其中有一个为空。2.	遍历l1,l2，将其数值小的节点接到cur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anh Tinh yêu vợ">
+<meta property="og:title" content="合并链表">
 <meta property="og:url" content="http://example.com/2024/05/27/%E5%89%91%E6%8C%87offer25---%E5%90%88%E5%B9%B6%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Anh Tinh yêu vợ">
-<meta property="og:description" content="合并链表题目描述 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。示例1：输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4##	思路：###	遍历判断：1.	创建一个伪头结点node，创建一个cur指向头结点。循环遍历结束条件为两个链表其中有一个为空。2.	遍历l1,l2，将其数值小的节点接">
+<meta property="og:description" content="题目描述 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。示例1：输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4##	思路：###	遍历判断：1.	创建一个伪头结点node，创建一个cur指向头结点。循环遍历结束条件为两个链表其中有一个为空。2.	遍历l1,l2，将其数值小的节点接到cur">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-27T03:28:45.703Z">
-<meta property="article:modified_time" content="2024-05-27T03:28:46.153Z">
+<meta property="article:modified_time" content="2024-05-27T04:15:52.636Z">
 <meta property="article:author" content="Anh Tinh">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Anh Tinh yêu vợ</title>
+  <title>合并链表 - Anh Tinh yêu vợ</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="合并链表"></span>
           
         </div>
 
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          354 字
+          350 字
         
       </span>
     
@@ -267,12 +267,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">合并链表</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="合并链表"><a href="#合并链表" class="headerlink" title="合并链表"></a>合并链表</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
+                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
 <p>输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。<br>示例1：<br>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4<br>##	思路：<br>###	遍历判断：<br>1.	创建一个伪头结点node，创建一个cur指向头结点。循环遍历结束条件为两个链表其中有一个为空。<br>2.	遍历l1,l2，将其数值小的节点接到cur的后面，将合并的当前链表下移一个节点，<br>3.	将cur &#x3D; cur.next<br>4.	当遍历结束的时候，必有一个链表为空，把不为空的链表全部拼接到cur的后面就完成了。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">mergeTwoLists</span><span class="hljs-params">(ListNode l1, ListNode l2)</span> &#123;<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">0</span>);<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> node;<br>       <span class="hljs-keyword">while</span>(l1 != <span class="hljs-literal">null</span> &amp;&amp; l2 != <span class="hljs-literal">null</span>)&#123;<br>           <span class="hljs-keyword">if</span> (l1.val &lt; l2.val)&#123;<br>               cur.next = l1;<br>               l1 = l1.next;<br>           &#125;<span class="hljs-keyword">else</span> &#123;<br>               cur.next= l2;<br>               l2 = l2.next;<br>           &#125;<br>           cur = cur.next;<br>       &#125;<br><br>       cur.next = l1 ==<span class="hljs-literal">null</span>? l2: l1;<br>       <span class="hljs-keyword">return</span> node.next;<br>   &#125;<br></code></pre></td></tr></table></figure>
@@ -299,7 +299,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>合并链表</div>
       <div>http://example.com/2024/05/27/剑指offer25---合并链表/</div>
     </div>
     <div class="license-meta">
@@ -344,9 +344,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/27/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" title="">
+                      <a href="/2024/05/27/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/" title="Java核心技术读书笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Java核心技术读书笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -354,8 +354,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/27/%E5%89%91%E6%8C%87offer---%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2024/05/27/%E5%89%91%E6%8C%87offer---%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" title="数组中数字出现的次数">
+                        <span class="hidden-mobile">数组中数字出现的次数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

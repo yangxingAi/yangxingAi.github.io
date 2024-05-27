@@ -16,21 +16,21 @@
   <meta name="author" content="Anh Tinh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="package com.cskaoyan.JDBCDemo;  import com.alibaba.druid.pool.DruidDataSourceFactory;  import javax.sql.DataSource; import java.io.*; import java.math.BigDecimal; import java.sql.*; import java.util.P">
+    <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566﻿&#96;&#96;&#96;javapackage com.cskaoyan.JDBCDemo;import com.alibaba.druid.pool.DruidData">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anh Tinh yêu vợ">
+<meta property="og:title" content="Druid基础">
 <meta property="og:url" content="http://example.com/2024/05/27/Druid%E5%9F%BA%E7%A1%80%E5%AE%9E%E4%BE%8B/index.html">
 <meta property="og:site_name" content="Anh Tinh yêu vợ">
-<meta property="og:description" content="package com.cskaoyan.JDBCDemo;  import com.alibaba.druid.pool.DruidDataSourceFactory;  import javax.sql.DataSource; import java.io.*; import java.math.BigDecimal; import java.sql.*; import java.util.P">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566﻿&#96;&#96;&#96;javapackage com.cskaoyan.JDBCDemo;import com.alibaba.druid.pool.DruidData">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-27T03:27:38.410Z">
-<meta property="article:modified_time" content="2024-05-27T03:27:38.934Z">
+<meta property="article:modified_time" content="2024-05-27T04:27:15.235Z">
 <meta property="article:author" content="Anh Tinh">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Anh Tinh yêu vợ</title>
+  <title>Druid基础 - Anh Tinh yêu vợ</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Druid基础"></span>
           
         </div>
 
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          239 字
+          240 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          2 分钟
+          3 分钟
         
       </span>
     
@@ -267,74 +267,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">Druid基础</h1>
             
             
               <div class="markdown-body">
                 
-                <pre><code class="java">package com.cskaoyan.JDBCDemo;
+                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs java">﻿```java<br><span class="hljs-keyword">package</span> com.cskaoyan.JDBCDemo;<br><br><span class="hljs-keyword">import</span> com.alibaba.druid.pool.DruidDataSourceFactory;<br><br><span class="hljs-keyword">import</span> javax.sql.DataSource;<br><span class="hljs-keyword">import</span> java.io.*;<br><span class="hljs-keyword">import</span> java.math.BigDecimal;<br><span class="hljs-keyword">import</span> java.sql.*;<br><span class="hljs-keyword">import</span> java.util.Properties;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DruidDemo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">Properties</span> <span class="hljs-variable">info</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Properties</span>();<br>        <span class="hljs-comment">//读取文件字符流</span><br>        <span class="hljs-type">FileReader</span> <span class="hljs-variable">fileReader</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileReader</span>(<span class="hljs-string">&quot;druid.properties&quot;</span>);<br>        <span class="hljs-comment">//加载配置文件</span><br>        info.load(fileReader);<br>        <span class="hljs-comment">//创建数据库连接池</span><br>        <span class="hljs-type">DataSource</span> <span class="hljs-variable">dataSource</span> <span class="hljs-operator">=</span> DruidDataSourceFactory.createDataSource(info);<br>        fileReader.close();<br>        <span class="hljs-comment">//获取连接</span><br>        <span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> dataSource.getConnection();<br>        <span class="hljs-comment">//创建预编译执行平台</span><br>        <span class="hljs-type">Statement</span> <span class="hljs-variable">statement</span> <span class="hljs-operator">=</span> connection.createStatement();<br>        <span class="hljs-comment">//创建表</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;create table user(\n&quot;</span> +<br>                <span class="hljs-string">&quot;id int primary key,\n&quot;</span> +<br>                <span class="hljs-string">&quot;username varchar(20),\n&quot;</span> +<br>                <span class="hljs-string">&quot;password varchar(20),\n&quot;</span> +<br>                <span class="hljs-string">&quot;balance decimal(10,2)\n&quot;</span> +<br>                <span class="hljs-string">&quot;)&quot;</span>;<br>        statement.execute(sql);<br>        <span class="hljs-comment">//批处理</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;insert into user values(?,?,?,?)&quot;</span>;<br>        <span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">preparedStatement</span> <span class="hljs-operator">=</span> connection.prepareStatement(sql1);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10000</span>; i++) &#123;<br>            preparedStatement.setInt(<span class="hljs-number">1</span>, i + <span class="hljs-number">1</span>);<br>            preparedStatement.setString(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;user&quot;</span> + i);<br>            preparedStatement.setString(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;password&quot;</span> + i);<br>            preparedStatement.setDouble(<span class="hljs-number">4</span>, i +<span class="hljs-number">123</span>);<br>            preparedStatement.addBatch();<br>            <span class="hljs-keyword">if</span> (i % <span class="hljs-number">1000</span> == <span class="hljs-number">0</span>) &#123;<br>                preparedStatement.executeBatch();<br>                preparedStatement.clearBatch();<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//打印查询结果</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">sqQuery</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select username,balance from user where balance &gt;10000&quot;</span>;<br>        <span class="hljs-type">ResultSet</span> <span class="hljs-variable">resultSet</span> <span class="hljs-operator">=</span> statement.executeQuery(sqQuery);<br>        <span class="hljs-type">PrintWriter</span> <span class="hljs-variable">printWriter</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PrintWriter</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileWriter</span>(<span class="hljs-string">&quot;test.txt&quot;</span>));<br>        printWriter.println(<span class="hljs-string">&quot;username&quot;</span> + <span class="hljs-string">&quot;\t&quot;</span> +<span class="hljs-string">&quot;balance&quot;</span>);<br>        <span class="hljs-keyword">while</span> (resultSet.next())&#123;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">username</span> <span class="hljs-operator">=</span> resultSet.getNString(<span class="hljs-string">&quot;username&quot;</span>);<br>            <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">balance</span> <span class="hljs-operator">=</span> resultSet.getBigDecimal(<span class="hljs-string">&quot;balance&quot;</span>);<br>            printWriter.println(username+<span class="hljs-string">&quot;\t&quot;</span>+balance);<br>        &#125;<br><br>        printWriter.close();<br>        connection.close();<br>    <br>    &#125;<br><br>&#125;<br><br><br></code></pre></td></tr></table></figure>
 
-import com.alibaba.druid.pool.DruidDataSourceFactory;
-
-import javax.sql.DataSource;
-import java.io.*;
-import java.math.BigDecimal;
-import java.sql.*;
-import java.util.Properties;
-
-public class DruidDemo &#123;
-    public static void main(String[] args) throws Exception &#123;
-        Properties info = new Properties();
-        //读取文件字符流
-        FileReader fileReader = new FileReader(&quot;druid.properties&quot;);
-        //加载配置文件
-        info.load(fileReader);
-        //创建数据库连接池
-        DataSource dataSource = DruidDataSourceFactory.createDataSource(info);
-        fileReader.close();
-        //获取连接
-        Connection connection = dataSource.getConnection();
-        //创建预编译执行平台
-        Statement statement = connection.createStatement();
-        //创建表
-        String sql = &quot;create table user(\n&quot; +
-                &quot;id int primary key,\n&quot; +
-                &quot;username varchar(20),\n&quot; +
-                &quot;password varchar(20),\n&quot; +
-                &quot;balance decimal(10,2)\n&quot; +
-                &quot;)&quot;;
-        statement.execute(sql);
-        //批处理
-        String sql1 = &quot;insert into user values(?,?,?,?)&quot;;
-        PreparedStatement preparedStatement = connection.prepareStatement(sql1);
-        for (int i = 1; i &lt;= 10000; i++) &#123;
-            preparedStatement.setInt(1, i + 1);
-            preparedStatement.setString(2, &quot;user&quot; + i);
-            preparedStatement.setString(3, &quot;password&quot; + i);
-            preparedStatement.setDouble(4, i +123);
-            preparedStatement.addBatch();
-            if (i % 1000 == 0) &#123;
-                preparedStatement.executeBatch();
-                preparedStatement.clearBatch();
-            &#125;
-        &#125;
-        //打印查询结果
-        String sqQuery = &quot;select username,balance from user where balance &gt;10000&quot;;
-        ResultSet resultSet = statement.executeQuery(sqQuery);
-        PrintWriter printWriter = new PrintWriter(new FileWriter(&quot;test.txt&quot;));
-        printWriter.println(&quot;username&quot; + &quot;\t&quot; +&quot;balance&quot;);
-        while (resultSet.next())&#123;
-            String username = resultSet.getNString(&quot;username&quot;);
-            BigDecimal balance = resultSet.getBigDecimal(&quot;balance&quot;);
-            printWriter.println(username+&quot;\t&quot;+balance);
-        &#125;
-
-        printWriter.close();
-        connection.close();
-
-    &#125;
-&#125;
-</code></pre>
 
                 
               </div>
@@ -352,7 +291,7 @@ public class DruidDemo &#123;
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>Druid基础</div>
       <div>http://example.com/2024/05/27/Druid基础实例/</div>
     </div>
     <div class="license-meta">
@@ -397,9 +336,9 @@ public class DruidDemo &#123;
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/27/DBUntils%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="">
+                      <a href="/2024/05/27/DBUntils%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="DBUntils操作工具类">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">DBUntils操作工具类</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -407,8 +346,8 @@ public class DruidDemo &#123;
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/27/JDBC%E6%89%A7%E8%A1%8CSQL%E8%AF%AD%E5%8F%A5%E5%9F%BA%E7%A1%80/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2024/05/27/JDBC%E6%89%A7%E8%A1%8CSQL%E8%AF%AD%E5%8F%A5%E5%9F%BA%E7%A1%80/" title="JDBC执行SQL">
+                        <span class="hidden-mobile">JDBC执行SQL</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

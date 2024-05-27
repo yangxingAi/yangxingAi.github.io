@@ -16,23 +16,23 @@
   <meta name="author" content="Anh Tinh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RocketMQ如何实现分布式事务  A服务也就是发送方发送half message 到 broker服务端 当A服务指导半消息发送成功后，开始执行本地事务 执行本地事务会有三种情况(1,执行成功 2，执行失败 3，网络等原因没有响应) 如果执行成功，返回commit 如果执行失败，返回rollback 如果没有收到响应，那么回查事务状态   根据事务的状态执行操作 如果commit，那么提交到订">
+    <meta name="description" content="A服务也就是发送方发送half message 到 broker服务端 当A服务指导半消息发送成功后，开始执行本地事务 执行本地事务会有三种情况(1,执行成功 2，执行失败 3，网络等原因没有响应) 如果执行成功，返回commit 如果执行失败，返回rollback 如果没有收到响应，那么回查事务状态   根据事务的状态执行操作 如果commit，那么提交到订阅方 如果rollback，那么不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anh Tinh yêu vợ">
+<meta property="og:title" content="RocketMQ如何实现分布式事务">
 <meta property="og:url" content="http://example.com/2024/05/27/RocketMQ%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/index.html">
 <meta property="og:site_name" content="Anh Tinh yêu vợ">
-<meta property="og:description" content="RocketMQ如何实现分布式事务  A服务也就是发送方发送half message 到 broker服务端 当A服务指导半消息发送成功后，开始执行本地事务 执行本地事务会有三种情况(1,执行成功 2，执行失败 3，网络等原因没有响应) 如果执行成功，返回commit 如果执行失败，返回rollback 如果没有收到响应，那么回查事务状态   根据事务的状态执行操作 如果commit，那么提交到订">
+<meta property="og:description" content="A服务也就是发送方发送half message 到 broker服务端 当A服务指导半消息发送成功后，开始执行本地事务 执行本地事务会有三种情况(1,执行成功 2，执行失败 3，网络等原因没有响应) 如果执行成功，返回commit 如果执行失败，返回rollback 如果没有收到响应，那么回查事务状态   根据事务的状态执行操作 如果commit，那么提交到订阅方 如果rollback，那么不">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTA5MDYxNy8yMDE5MDcvMTA5MDYxNy0yMDE5MDcxNTIwNDY0OTI0NC0xMDcwMDYwNDc1LmpwZw?x-oss-process=image/format,png">
 <meta property="article:published_time" content="2024-05-27T03:59:29.272Z">
-<meta property="article:modified_time" content="2024-05-27T03:59:29.838Z">
+<meta property="article:modified_time" content="2024-05-27T04:23:37.968Z">
 <meta property="article:author" content="Anh Tinh">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTA5MDYxNy8yMDE5MDcvMTA5MDYxNy0yMDE5MDcxNTIwNDY0OTI0NC0xMDcwMDYwNDc1LmpwZw?x-oss-process=image/format,png">
   
   
   
-  <title>Anh Tinh yêu vợ</title>
+  <title>RocketMQ如何实现分布式事务 - Anh Tinh yêu vợ</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="RocketMQ如何实现分布式事务"></span>
           
         </div>
 
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          777 字
+          768 字
         
       </span>
     
@@ -269,12 +269,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">RocketMQ如何实现分布式事务</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="RocketMQ如何实现分布式事务"><a href="#RocketMQ如何实现分布式事务" class="headerlink" title="RocketMQ如何实现分布式事务"></a>RocketMQ如何实现分布式事务</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTA5MDYxNy8yMDE5MDcvMTA5MDYxNy0yMDE5MDcxNTIwNDY0OTI0NC0xMDcwMDYwNDc1LmpwZw?x-oss-process=image/format,png" srcset="/img/loading.gif" lazyload></p>
+                <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTA5MDYxNy8yMDE5MDcvMTA5MDYxNy0yMDE5MDcxNTIwNDY0OTI0NC0xMDcwMDYwNDc1LmpwZw?x-oss-process=image/format,png" srcset="/img/loading.gif" lazyload></p>
 <ol>
 <li>A服务也就是发送方发送half message 到 broker服务端</li>
 <li>当A服务指导半消息发送成功后，开始执行本地事务</li>
@@ -339,7 +339,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>RocketMQ如何实现分布式事务</div>
       <div>http://example.com/2024/05/27/RocketMQ如何实现分布式事务/</div>
     </div>
     <div class="license-meta">
@@ -384,9 +384,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/27/%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E5%B0%B1%E5%AD%A6%E4%BC%9ALambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="">
+                      <a href="/2024/05/27/%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E5%B0%B1%E5%AD%A6%E4%BC%9ALambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="Lambda表达式">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Lambda表达式</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -394,8 +394,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/27/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8B%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A6%82%E4%BD%95%E9%99%90%E6%B5%81%E9%97%AE%E9%A2%98/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2024/05/27/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8B%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A6%82%E4%BD%95%E9%99%90%E6%B5%81%E9%97%AE%E9%A2%98/" title="高并发下微服务如何限流问题">
+                        <span class="hidden-mobile">高并发下微服务如何限流问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

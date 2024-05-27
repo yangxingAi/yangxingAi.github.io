@@ -16,21 +16,21 @@
   <meta name="author" content="Anh Tinh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目连接http:&#x2F;&#x2F;118.190.20.162&#x2F;view.page?gpid&#x3D;T113 思路了解一下排序器就行 解法123456789101112131415161718192021public class jiancedian &#123;    public static void main(String[] args) &#123;        Scanner scanner &#x3D; ne">
+    <meta name="description" content="## 题目连接 http:&#x2F;&#x2F;118.190.20.162&#x2F;view.page?gpid&#x3D;T113 思路了解一下排序器就行 解法123456789101112131415161718192021public class jiancedian &#123;    public static void main(String[] args) &#123;        Scanner scanner">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anh Tinh yêu vợ">
+<meta property="og:title" content="检测点查询">
 <meta property="og:url" content="http://example.com/2024/05/27/%E6%A3%80%E6%B5%8B%E7%82%B9%E6%9F%A5%E8%AF%A2Java%E8%A7%A3%E6%B3%95-CSP%E8%AE%A4%E8%AF%81%E6%9C%80%E6%98%93%E6%87%82%E8%A7%A3%E6%B3%95/index.html">
 <meta property="og:site_name" content="Anh Tinh yêu vợ">
-<meta property="og:description" content="题目连接http:&#x2F;&#x2F;118.190.20.162&#x2F;view.page?gpid&#x3D;T113 思路了解一下排序器就行 解法123456789101112131415161718192021public class jiancedian &#123;    public static void main(String[] args) &#123;        Scanner scanner &#x3D; ne">
+<meta property="og:description" content="## 题目连接 http:&#x2F;&#x2F;118.190.20.162&#x2F;view.page?gpid&#x3D;T113 思路了解一下排序器就行 解法123456789101112131415161718192021public class jiancedian &#123;    public static void main(String[] args) &#123;        Scanner scanner">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-27T04:00:52.300Z">
-<meta property="article:modified_time" content="2024-05-27T04:00:52.677Z">
+<meta property="article:modified_time" content="2024-05-27T04:16:55.811Z">
 <meta property="article:author" content="Anh Tinh">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Anh Tinh yêu vợ</title>
+  <title>检测点查询 - Anh Tinh yêu vợ</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="检测点查询"></span>
           
         </div>
 
@@ -267,12 +267,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">检测点查询</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="题目连接"><a href="#题目连接" class="headerlink" title="题目连接"></a>题目连接</h2><p><a target="_blank" rel="noopener" href="http://118.190.20.162/view.page?gpid=T113">http://118.190.20.162/view.page?gpid=T113</a></p>
+                <p>﻿## 题目连接</p>
+<p><a target="_blank" rel="noopener" href="http://118.190.20.162/view.page?gpid=T113">http://118.190.20.162/view.page?gpid=T113</a></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>了解一下排序器就行</p>
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">jiancedian</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>        <span class="hljs-type">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n][<span class="hljs-number">2</span>];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">xi</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">yi</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">distance</span> <span class="hljs-operator">=</span> ((x-xi) * (x-xi)) + ((y-yi) * (y-yi));<br>            arr[i][<span class="hljs-number">0</span>] = i+<span class="hljs-number">1</span>;<br>            arr[i][<span class="hljs-number">1</span>] = distance;<br>        &#125;<br>		<span class="hljs-comment">// 如果距离相等，那么按照编号升序，如果不等就按照距离升序</span><br>        Arrays.sort(arr, (o1, o2) -&gt; o1[<span class="hljs-number">1</span>] == o2[<span class="hljs-number">1</span>] ? o1[<span class="hljs-number">0</span>]-o2[<span class="hljs-number">0</span>] : o1[<span class="hljs-number">1</span>]-o2[<span class="hljs-number">1</span>]);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) &#123;<br>            System.out.print(arr[i][<span class="hljs-number">0</span>]+<span class="hljs-string">&quot;\n&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -294,7 +295,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>检测点查询</div>
       <div>http://example.com/2024/05/27/检测点查询Java解法-CSP认证最易懂解法/</div>
     </div>
     <div class="license-meta">
@@ -339,9 +340,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/27/%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8Java%E8%A7%A3%E6%B3%95---CSP%E8%AE%A4%E8%AF%81%E8%B6%85%E8%AF%A6%E8%A7%A3/" title="">
+                      <a href="/2024/05/27/%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8Java%E8%A7%A3%E6%B3%95---CSP%E8%AE%A4%E8%AF%81%E8%B6%85%E8%AF%A6%E8%A7%A3/" title="线性分类器">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">线性分类器</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -349,8 +350,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/27/%E5%89%91%E6%8C%87offer-%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2024/05/27/%E5%89%91%E6%8C%87offer-%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/" title="二叉树的深度">
+                        <span class="hidden-mobile">二叉树的深度</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

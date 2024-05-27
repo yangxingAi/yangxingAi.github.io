@@ -16,21 +16,21 @@
   <meta name="author" content="Anh Tinh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="package com.cskaoyan.JDBCDemo;  import com.alibaba.druid.pool.DruidDataSourceFactory; import org.apache.commons.dbutils.QueryRunner; import org.apache.commons.dbutils.handlers.BeanHandler; import org.">
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anh Tinh yêu vợ">
+<meta property="og:title" content="DBUntils操作工具类">
 <meta property="og:url" content="http://example.com/2024/05/27/DBUntils%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%B7%A5%E5%85%B7%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Anh Tinh yêu vợ">
-<meta property="og:description" content="package com.cskaoyan.JDBCDemo;  import com.alibaba.druid.pool.DruidDataSourceFactory; import org.apache.commons.dbutils.QueryRunner; import org.apache.commons.dbutils.handlers.BeanHandler; import org.">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-27T03:27:46.157Z">
-<meta property="article:modified_time" content="2024-05-27T03:27:46.541Z">
+<meta property="article:modified_time" content="2024-05-27T04:27:46.787Z">
 <meta property="article:author" content="Anh Tinh">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Anh Tinh yêu vợ</title>
+  <title>DBUntils操作工具类 - Anh Tinh yêu vợ</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="DBUntils操作工具类"></span>
           
         </div>
 
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          400 字
+          401 字
         
       </span>
     
@@ -267,113 +267,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">DBUntils操作工具类</h1>
             
             
               <div class="markdown-body">
                 
-                <pre><code class="java">package com.cskaoyan.JDBCDemo;
+                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><code class="hljs java">﻿```java<br><span class="hljs-keyword">package</span> com.cskaoyan.JDBCDemo;<br><br><span class="hljs-keyword">import</span> com.alibaba.druid.pool.DruidDataSourceFactory;<br><span class="hljs-keyword">import</span> org.apache.commons.dbutils.QueryRunner;<br><span class="hljs-keyword">import</span> org.apache.commons.dbutils.handlers.BeanHandler;<br><span class="hljs-keyword">import</span> org.junit.Assert;<br><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-keyword">import</span> javax.sql.DataSource;<br><span class="hljs-keyword">import</span> java.io.FileReader;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.sql.Connection;<br><span class="hljs-keyword">import</span> java.sql.SQLException;<br><span class="hljs-keyword">import</span> java.util.Properties;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> * commons-dbutils 是 Apache 组织提供的一个开源 JDBC工具类库，</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> * 它是对 JDBC 的简单封装，学习成本极低，</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> * 使用 dbutils 可以简化 jdbc 编码的工作量，同时也不会影响程序的性能。</span><br><span class="hljs-comment">   *</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> * 使用 DBUtils 需要导入 commons-dbutils-1.7.jar。DBUtils 有三个核心的组件：</span><br><span class="hljs-comment">   *</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> * 1. QueryRunner：该类提供了 DML 和 DQL 的API。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> * 2. ResultSetHandler：该接口定义如何封装结果集。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> * 3. DbUtils：一个简单的工具类，简化了关闭资源和事务处理。</span><br><span class="hljs-comment">      */</span><br>      <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DBUtils</span> &#123;<br><br>     <span class="hljs-comment">/**</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">      * 添加数据</span><br><span class="hljs-comment">      * <span class="hljs-doctag">@throws</span> Exception</span><br><span class="hljs-comment">        */</span><br>          <span class="hljs-meta">@Test</span><br>          <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">tetsInsert</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">//该类提供了DML  DQL的API</span><br>        <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;insert into user(username,password,balance)values(?,?,?)&quot;</span>;<br>        Object[] params =&#123;<span class="hljs-string">&quot;yangxing&quot;</span>,<span class="hljs-string">&quot;123456&quot;</span>,<span class="hljs-number">2000</span>&#125;;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rows</span> <span class="hljs-operator">=</span> queryRunner.update(sql, params);<br>        Assert.assertEquals(<span class="hljs-number">1</span>,rows);<br>          &#125;<br><br>     <span class="hljs-comment">/**</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">      * 更新数据</span><br><span class="hljs-comment">        */</span><br>          <span class="hljs-meta">@Test</span><br>          <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span>  <span class="hljs-title function_">testUpdate</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;update user set balance  = 50 where id =?&quot;</span>;<br>        <span class="hljs-type">Object</span> <span class="hljs-variable">param</span> <span class="hljs-operator">=</span> <span class="hljs-number">333</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">row</span> <span class="hljs-operator">=</span> queryRunner.update(sql, param);<br>        Assert.assertEquals(<span class="hljs-number">1</span>,row);<br>          &#125;<br><br>     <span class="hljs-meta">@Test</span><br>     <span class="hljs-keyword">public</span>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">testDelete</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>         <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>         <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;delete from user where id =?&quot;</span>;<br>         <span class="hljs-type">Object</span> <span class="hljs-variable">param</span> <span class="hljs-operator">=</span> <span class="hljs-number">222</span>;<br>         <span class="hljs-type">int</span> <span class="hljs-variable">row</span> <span class="hljs-operator">=</span> queryRunner.update(sql, param);<br>         Assert.assertEquals(<span class="hljs-number">1</span>,row);<br>     &#125;<br><br>     <span class="hljs-meta">@Test</span><br>     <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testQuery</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>         <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>         String sql= <span class="hljs-string">&quot;select * from user where username = ?&quot;</span>;<br>         <span class="hljs-type">Object</span> <span class="hljs-variable">param</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;yangxing&quot;</span>;<br>         <span class="hljs-comment">//User 类定义了字段变量，实现无参构造和setter</span><br>         <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> queryRunner.query(sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">BeanHandler</span>&lt;&gt;(User.class), param);<br>         System.out.println(user);<br>     &#125;<br><br>     <span class="hljs-meta">@Test</span><br>     <span class="hljs-keyword">public</span>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">testBatch</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>         <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>         <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;insert into user(username,password,balance) values (?,?,?)&quot;</span>;<br>         Object[][] params = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>[<span class="hljs-number">1000</span>][<span class="hljs-number">3</span>];<br>         <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>             params[i] = <span class="hljs-keyword">new</span>  <span class="hljs-title class_">Object</span>[]&#123;<span class="hljs-string">&quot;user&quot;</span>+i,<span class="hljs-string">&quot;password&quot;</span>+i,i&#125;;<br>         &#125;<br>         <span class="hljs-type">int</span> [] rowsArr = queryRunner.batch(sql,params);<br>     &#125;<br><br>     <br><br>     <span class="hljs-comment">/**</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">      * 获取数据源</span><br><span class="hljs-comment">      * <span class="hljs-doctag">@return</span>  数据源</span><br><span class="hljs-comment">        */</span><br>          <span class="hljs-keyword">private</span> DataSource <span class="hljs-title function_">getDataSource</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">//加载配置文件</span><br>        <span class="hljs-type">Properties</span> <span class="hljs-variable">info</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Properties</span>();<br>        <span class="hljs-type">DataSource</span> <span class="hljs-variable">dataSource</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-type">FileReader</span> <span class="hljs-variable">reader</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileReader</span>(<span class="hljs-string">&quot;druid.properties&quot;</span>);<br>        info.load(reader);<br>        <span class="hljs-comment">//创建数据源</span><br>        dataSource = DruidDataSourceFactory.createDataSource(info);<br>        <span class="hljs-keyword">return</span> dataSource;<br>          &#125;<br>        &#125;<br><br><br></code></pre></td></tr></table></figure>
 
-import com.alibaba.druid.pool.DruidDataSourceFactory;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.junit.Assert;
-import org.junit.Test;
-
-import javax.sql.DataSource;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Properties;
-
-/**
- * commons-dbutils 是 Apache 组织提供的一个开源 JDBC工具类库，
- * 它是对 JDBC 的简单封装，学习成本极低，
- * 使用 dbutils 可以简化 jdbc 编码的工作量，同时也不会影响程序的性能。
- *
- * 使用 DBUtils 需要导入 commons-dbutils-1.7.jar。DBUtils 有三个核心的组件：
- *
- * 1. QueryRunner：该类提供了 DML 和 DQL 的API。
- * 2. ResultSetHandler：该接口定义如何封装结果集。
- * 3. DbUtils：一个简单的工具类，简化了关闭资源和事务处理。
- */
-public class DBUtils &#123;
-
-    /**
-     * 添加数据
-     * @throws Exception
-     */
-    @Test
-    public void tetsInsert() throws Exception &#123;
-        //该类提供了DML  DQL的API
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;insert into user(username,password,balance)values(?,?,?)&quot;;
-        Object[] params =&#123;&quot;yangxing&quot;,&quot;123456&quot;,2000&#125;;
-        int rows = queryRunner.update(sql, params);
-        Assert.assertEquals(1,rows);
-    &#125;
-
-    /**
-     * 更新数据
-     */
-    @Test
-    public void  testUpdate() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;update user set balance  = 50 where id =?&quot;;
-        Object param = 333;
-        int row = queryRunner.update(sql, param);
-        Assert.assertEquals(1,row);
-    &#125;
-
-    @Test
-    public  void testDelete() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;delete from user where id =?&quot;;
-        Object param = 222;
-        int row = queryRunner.update(sql, param);
-        Assert.assertEquals(1,row);
-    &#125;
-
-    @Test
-    public void testQuery() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql= &quot;select * from user where username = ?&quot;;
-        Object param = &quot;yangxing&quot;;
-        //User 类定义了字段变量，实现无参构造和setter
-        User user = queryRunner.query(sql, new BeanHandler&lt;&gt;(User.class), param);
-        System.out.println(user);
-    &#125;
-
-    @Test
-    public  void testBatch() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;insert into user(username,password,balance) values (?,?,?)&quot;;
-        Object[][] params = new Object[1000][3];
-        for (int i = 0; i &lt; 1000; i++) &#123;
-            params[i] = new  Object[]&#123;&quot;user&quot;+i,&quot;password&quot;+i,i&#125;;
-        &#125;
-        int [] rowsArr = queryRunner.batch(sql,params);
-    &#125;
-
-    
-
-    /**
-     * 获取数据源
-     * @return  数据源
-     */
-    private DataSource getDataSource() throws Exception &#123;
-        //加载配置文件
-        Properties info = new Properties();
-        DataSource dataSource = null;
-        FileReader reader = new FileReader(&quot;druid.properties&quot;);
-        info.load(reader);
-        //创建数据源
-        dataSource = DruidDataSourceFactory.createDataSource(info);
-        return dataSource;
-    &#125;
-&#125;
-</code></pre>
 
                 
               </div>
@@ -391,7 +291,7 @@ public class DBUtils &#123;
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>DBUntils操作工具类</div>
       <div>http://example.com/2024/05/27/DBUntils数据库操作工具类/</div>
     </div>
     <div class="license-meta">
@@ -436,9 +336,9 @@ public class DBUtils &#123;
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/27/DBUntils%E7%BB%93%E6%9E%9C%E5%A4%84%E7%90%86/" title="">
+                      <a href="/2024/05/27/DBUntils%E7%BB%93%E6%9E%9C%E5%A4%84%E7%90%86/" title="DBUtils结果处理">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">DBUtils结果处理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -446,8 +346,8 @@ public class DBUtils &#123;
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/27/Druid%E5%9F%BA%E7%A1%80%E5%AE%9E%E4%BE%8B/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2024/05/27/Druid%E5%9F%BA%E7%A1%80%E5%AE%9E%E4%BE%8B/" title="Druid基础">
+                        <span class="hidden-mobile">Druid基础</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

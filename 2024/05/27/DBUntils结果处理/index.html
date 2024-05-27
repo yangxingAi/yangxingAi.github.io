@@ -16,21 +16,21 @@
   <meta name="author" content="Anh Tinh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="package com.cskaoyan.JDBCDemo;  import com.alibaba.druid.pool.DruidDataSourceFactory; import org.apache.commons.dbutils.DbUtils; import org.apache.commons.dbutils.QueryRunner; import org.apache.common">
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anh Tinh yêu vợ">
+<meta property="og:title" content="DBUtils结果处理">
 <meta property="og:url" content="http://example.com/2024/05/27/DBUntils%E7%BB%93%E6%9E%9C%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Anh Tinh yêu vợ">
-<meta property="og:description" content="package com.cskaoyan.JDBCDemo;  import com.alibaba.druid.pool.DruidDataSourceFactory; import org.apache.commons.dbutils.DbUtils; import org.apache.commons.dbutils.QueryRunner; import org.apache.common">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-27T03:27:55.459Z">
-<meta property="article:modified_time" content="2024-05-27T03:27:55.930Z">
+<meta property="article:modified_time" content="2024-05-27T04:28:18.902Z">
 <meta property="article:author" content="Anh Tinh">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Anh Tinh yêu vợ</title>
+  <title>DBUtils结果处理 - Anh Tinh yêu vợ</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="DBUtils结果处理"></span>
           
         </div>
 
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          496 字
+          497 字
         
       </span>
     
@@ -267,149 +267,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">DBUtils结果处理</h1>
             
             
               <div class="markdown-body">
                 
-                <pre><code class="java">package com.cskaoyan.JDBCDemo;
+                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><code class="hljs java">﻿```java<br><span class="hljs-keyword">package</span> com.cskaoyan.JDBCDemo;<br><br><span class="hljs-keyword">import</span> com.alibaba.druid.pool.DruidDataSourceFactory;<br><span class="hljs-keyword">import</span> org.apache.commons.dbutils.DbUtils;<br><span class="hljs-keyword">import</span> org.apache.commons.dbutils.QueryRunner;<br><span class="hljs-keyword">import</span> org.apache.commons.dbutils.handlers.*;<br><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-keyword">import</span> javax.sql.DataSource;<br><span class="hljs-keyword">import</span> java.io.FileReader;<br><span class="hljs-keyword">import</span> java.sql.SQLException;<br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.Map;<br><span class="hljs-keyword">import</span> java.util.Properties;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ResultSetDemo</span> &#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * ArryHandler :把结果的第一行数据转成对象数组</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testArrHandler</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from user&quot;</span>;<br>        Object arr[] = queryRunner.query(sql,<span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayHandler</span>());<br>        System.out.println(Arrays.toString(arr));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * ArrListHandler :把结果集中的每一行数据都转成一个数组，再存放到List中。</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testArrListHandler</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from user&quot;</span>;<br>        List&lt;Object[]&gt; arr = queryRunner.query(sql,<span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayListHandler</span>());<br>        <span class="hljs-keyword">for</span> (Object[] obj :<br>                arr) &#123;<br>            System.out.println(Arrays.toString(obj));<br>        &#125;<br>    <br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * BeanHandler : 将结果集中的第一行数据封装到一个对应的JavaBean实例中。</span><br><span class="hljs-comment">     * 使用 BeanHandler 和 BeanListHandler 需要注意以下几点：</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * 1. 对应的 JavaBean 必须提供无参构造方法。</span><br><span class="hljs-comment">     * 2. JavaBean 的属性名应该和返回结果的字段名相同。</span><br><span class="hljs-comment">     * 3. JavaBean 中必须提供公共的 Setter 方法。</span><br><span class="hljs-comment">     */</span><br>    <br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testBeanHandler</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from t_user&quot;</span>;<br>        <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> queryRunner.query(sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">BeanHandler</span>&lt;&gt;(User.class));<br>        System.out.println(user);<br>    &#125;<br>    <br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * BeanListHandler:将结果集中的每一行数据都封装到一个对应的JavaBean实例中，存放到List里。</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">tetsBeanListHandler</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from user&quot;</span>;<br>        List&lt;User&gt; users = queryRunner.query(sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">BeanListHandler</span>&lt;&gt;(User.class));<br>        <span class="hljs-keyword">for</span> (User user :<br>                users) &#123;<br>            System.out.println(user);<br>        &#125;<br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * ColumnListHandler：将结果集中某一列的数据存放到List中。</span><br><span class="hljs-comment">     */</span><br>    <br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">testColumListHandler</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select username from user&quot;</span>;<br>        <span class="hljs-comment">//因为username是varchar  所以存放string</span><br>        List&lt;String&gt; users = queryRunner.query(sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">ColumnListHandler</span>&lt;String&gt;());<br>        <span class="hljs-keyword">for</span> (String name :<br>             users) &#123;<br>            System.out.println(name);<br>        &#125;<br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * KeyedHandler(name)：将结果集中的每一行数据都封装到一个Map里，</span><br><span class="hljs-comment">     * 再把这些map再存到一个map里，其key为指定的key。</span><br><span class="hljs-comment">     */</span><br>    <br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testKyeHandler</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">QueryRunner</span> <span class="hljs-variable">queryRunner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryRunner</span>(getDataSource());<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from user&quot;</span>;<br>        Map&lt;Integer, Map&lt;String, Object&gt;&gt; query =<br>                queryRunner.query(sql, <span class="hljs-keyword">new</span> <span class="hljs-title class_">KeyedHandler</span>&lt;Integer&gt;(<span class="hljs-string">&quot;id&quot;</span>));<br>        System.out.println(query);<br><br><br>​        <br><br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 关闭连接</span><br><span class="hljs-comment">     */</span><br><br><br><br><br><br><br><br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 获取数据源</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span>  数据源</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> DataSource <span class="hljs-title function_">getDataSource</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">//加载配置文件</span><br>        <span class="hljs-type">Properties</span> <span class="hljs-variable">info</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Properties</span>();<br>        javax.sql.<span class="hljs-type">DataSource</span> <span class="hljs-variable">dataSource</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-type">FileReader</span> <span class="hljs-variable">reader</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileReader</span>(<span class="hljs-string">&quot;druid.properties&quot;</span>);<br>        info.load(reader);<br>        <span class="hljs-comment">//创建数据源</span><br>        dataSource = DruidDataSourceFactory.createDataSource(info);<br>        <span class="hljs-keyword">return</span> dataSource;<br>    &#125;<br><br>&#125;<br><br><br></code></pre></td></tr></table></figure>
 
-import com.alibaba.druid.pool.DruidDataSourceFactory;
-import org.apache.commons.dbutils.DbUtils;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.*;
-import org.junit.Test;
-
-import javax.sql.DataSource;
-import java.io.FileReader;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-
-public class ResultSetDemo &#123;
-    /**
-     * ArryHandler :把结果的第一行数据转成对象数组
-     */
-    @Test
-    public void testArrHandler() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;select * from user&quot;;
-        Object arr[] = queryRunner.query(sql,new ArrayHandler());
-        System.out.println(Arrays.toString(arr));
-    &#125;
-
-    /**
-     * ArrListHandler :把结果集中的每一行数据都转成一个数组，再存放到List中。
-     */
-    @Test
-    public void testArrListHandler() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;select * from user&quot;;
-        List&lt;Object[]&gt; arr = queryRunner.query(sql,new ArrayListHandler());
-        for (Object[] obj :
-                arr) &#123;
-            System.out.println(Arrays.toString(obj));
-        &#125;
-
-    &#125;
-
-
-    /**
-     * BeanHandler : 将结果集中的第一行数据封装到一个对应的JavaBean实例中。
-     * 使用 BeanHandler 和 BeanListHandler 需要注意以下几点：
-     *
-     * 1. 对应的 JavaBean 必须提供无参构造方法。
-     * 2. JavaBean 的属性名应该和返回结果的字段名相同。
-     * 3. JavaBean 中必须提供公共的 Setter 方法。
-     */
-
-    @Test
-    public void testBeanHandler() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;select * from t_user&quot;;
-        User user = queryRunner.query(sql, new BeanHandler&lt;&gt;(User.class));
-        System.out.println(user);
-    &#125;
-
-    /**
-    * BeanListHandler:将结果集中的每一行数据都封装到一个对应的JavaBean实例中，存放到List里。
-    */
-    @Test
-    public  void tetsBeanListHandler() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;select * from user&quot;;
-        List&lt;User&gt; users = queryRunner.query(sql, new BeanListHandler&lt;&gt;(User.class));
-        for (User user :
-                users) &#123;
-            System.out.println(user);
-        &#125;
-    &#125;
-
-
-    /**
-     * ColumnListHandler：将结果集中某一列的数据存放到List中。
-     */
-
-    @Test
-    public  void testColumListHandler() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;select username from user&quot;;
-        //因为username是varchar  所以存放string
-        List&lt;String&gt; users = queryRunner.query(sql, new ColumnListHandler&lt;String&gt;());
-        for (String name :
-             users) &#123;
-            System.out.println(name);
-        &#125;
-    &#125;
-
-
-    /**
-     * KeyedHandler(name)：将结果集中的每一行数据都封装到一个Map里，
-     * 再把这些map再存到一个map里，其key为指定的key。
-     */
-
-    @Test
-    public void testKyeHandler() throws Exception &#123;
-        QueryRunner queryRunner = new QueryRunner(getDataSource());
-        String sql = &quot;select * from user&quot;;
-        Map&lt;Integer, Map&lt;String, Object&gt;&gt; query =
-                queryRunner.query(sql, new KeyedHandler&lt;Integer&gt;(&quot;id&quot;));
-        System.out.println(query);
-
-        
-    &#125;
-
-
-    /**
-     * 关闭连接
-     */
-
-
-
-
-
-
-
-
-
-    /**
-     * 获取数据源
-     * @return  数据源
-     */
-    private DataSource getDataSource() throws Exception &#123;
-        //加载配置文件
-        Properties info = new Properties();
-        javax.sql.DataSource dataSource = null;
-        FileReader reader = new FileReader(&quot;druid.properties&quot;);
-        info.load(reader);
-        //创建数据源
-        dataSource = DruidDataSourceFactory.createDataSource(info);
-        return dataSource;
-    &#125;
-&#125;
-</code></pre>
 
                 
               </div>
@@ -427,7 +291,7 @@ public class ResultSetDemo &#123;
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>DBUtils结果处理</div>
       <div>http://example.com/2024/05/27/DBUntils结果处理/</div>
     </div>
     <div class="license-meta">
@@ -472,9 +336,9 @@ public class ResultSetDemo &#123;
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/27/%E5%89%91%E6%8C%87offer---%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" title="">
+                      <a href="/2024/05/27/%E5%89%91%E6%8C%87offer---%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" title="反转链表">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">反转链表</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -482,8 +346,8 @@ public class ResultSetDemo &#123;
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/27/DBUntils%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2024/05/27/DBUntils%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="DBUntils操作工具类">
+                        <span class="hidden-mobile">DBUntils操作工具类</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,26 +16,26 @@
   <meta name="author" content="Anh Tinh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="递归删除二叉搜索树思路： 要删除的节点为叶子节点，可以直接删除。   要删除的几点不是叶子节点且拥有右节点，则该节点可以由该节点的后继节点进行替代，该后继节点位于右子树中较低的位置。然后可以从后继节点的位置递归向下操作以删除后继节点。   要删除的节点不是叶子节点，且没有右节点但是有左节点。这意味着它的后继节点在它的上面，但是我们并不想返回。我们可以使用它的前驱节点进行替代，然后再递归的向下删除前">
+    <meta name="description" content="思路： 要删除的节点为叶子节点，可以直接删除。   要删除的几点不是叶子节点且拥有右节点，则该节点可以由该节点的后继节点进行替代，该后继节点位于右子树中较低的位置。然后可以从后继节点的位置递归向下操作以删除后继节点。   要删除的节点不是叶子节点，且没有右节点但是有左节点。这意味着它的后继节点在它的上面，但是我们并不想返回。我们可以使用它的前驱节点进行替代，然后再递归的向下删除前驱节点。    算">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anh Tinh yêu vợ">
+<meta property="og:title" content="递归删除二叉搜索树">
 <meta property="og:url" content="http://example.com/2024/05/27/%E9%80%92%E5%BD%92%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/index.html">
 <meta property="og:site_name" content="Anh Tinh yêu vợ">
-<meta property="og:description" content="递归删除二叉搜索树思路： 要删除的节点为叶子节点，可以直接删除。   要删除的几点不是叶子节点且拥有右节点，则该节点可以由该节点的后继节点进行替代，该后继节点位于右子树中较低的位置。然后可以从后继节点的位置递归向下操作以删除后继节点。   要删除的节点不是叶子节点，且没有右节点但是有左节点。这意味着它的后继节点在它的上面，但是我们并不想返回。我们可以使用它的前驱节点进行替代，然后再递归的向下删除前">
+<meta property="og:description" content="思路： 要删除的节点为叶子节点，可以直接删除。   要删除的几点不是叶子节点且拥有右节点，则该节点可以由该节点的后继节点进行替代，该后继节点位于右子树中较低的位置。然后可以从后继节点的位置递归向下操作以删除后继节点。   要删除的节点不是叶子节点，且没有右节点但是有左节点。这意味着它的后继节点在它的上面，但是我们并不想返回。我们可以使用它的前驱节点进行替代，然后再递归的向下删除前驱节点。    算">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWMubGVldGNvZGUtY24uY29tL2I4NmM1ZDU4NjZmYjhiMWY2YTJmMTVmNDcyNjJhZGYzYWU2OGU1NjQ5OGM5ZTI2MWEwMzFiYmI4ZWJjNTU1ODgtZmlsZV8xNTc2NDc3OTEyMzAy?x-oss-process=image/format,png">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWMubGVldGNvZGUtY24uY29tLzEyMzUzZTVjNzEyNjdhYWZkMzU1MzE5YThiODgxZjBiOWVmYWUwNjgwMzU4YjdjZTczODIyODE1MWE0MmQzY2MtZmlsZV8xNTc2NDc3OTEyMzEy?x-oss-process=image/format,png">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWMubGVldGNvZGUtY24uY29tLzJhOWFhNDRhYWI3OTQ4ZTc4ZTA2MTgyNzkxZTJlYWFmMDBmYjcyZWZmMDU0YTFmNDYxMjAzMGEwNDdkZGU1OWEtZmlsZV8xNTc2NDc3OTEyMzE1?x-oss-process=image/format,png">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWMubGVldGNvZGUtY24uY29tL2NhYmQ3MGRlNzliNTMzZjc0NGYzYTkwNjg5NDFjOWJlMTA3MTFhNDdhMjZiM2RhZWQ2N2JkMDBmZWQzOTE2NDQtZmlsZV8xNTc2NDc3OTEyMzA0?x-oss-process=image/format,png">
 <meta property="article:published_time" content="2024-05-27T03:26:49.637Z">
-<meta property="article:modified_time" content="2024-05-27T03:26:50.056Z">
+<meta property="article:modified_time" content="2024-05-27T04:22:18.983Z">
 <meta property="article:author" content="Anh Tinh">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWMubGVldGNvZGUtY24uY29tL2I4NmM1ZDU4NjZmYjhiMWY2YTJmMTVmNDcyNjJhZGYzYWU2OGU1NjQ5OGM5ZTI2MWEwMzFiYmI4ZWJjNTU1ODgtZmlsZV8xNTc2NDc3OTEyMzAy?x-oss-process=image/format,png">
   
   
   
-  <title>Anh Tinh yêu vợ</title>
+  <title>递归删除二叉搜索树 - Anh Tinh yêu vợ</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="递归删除二叉搜索树"></span>
           
         </div>
 
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          478 字
+          469 字
         
       </span>
     
@@ -272,12 +272,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">递归删除二叉搜索树</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="递归删除二叉搜索树"><a href="#递归删除二叉搜索树" class="headerlink" title="递归删除二叉搜索树"></a>递归删除二叉搜索树</h1><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
+                <h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
 <li><p>要删除的节点为叶子节点，可以直接删除。</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9waWMubGVldGNvZGUtY24uY29tL2I4NmM1ZDU4NjZmYjhiMWY2YTJmMTVmNDcyNjJhZGYzYWU2OGU1NjQ5OGM5ZTI2MWEwMzFiYmI4ZWJjNTU1ODgtZmlsZV8xNTc2NDc3OTEyMzAy?x-oss-process=image/format,png" srcset="/img/loading.gif" lazyload alt="alt 叶子"></p>
 </li>
@@ -303,7 +303,6 @@
 <h2 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>  <span class="hljs-comment">/*</span><br><span class="hljs-comment">  One step right and then always left</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">successor</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    root = root.right;<br>    <span class="hljs-keyword">while</span> (root.left != <span class="hljs-literal">null</span>) root = root.left;<br>    <span class="hljs-keyword">return</span> root.val;<br>  &#125;<br><br>  <span class="hljs-comment">/*</span><br><span class="hljs-comment">  One step left and then always right</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">predecessor</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    root = root.left;<br>    <span class="hljs-keyword">while</span> (root.right != <span class="hljs-literal">null</span>) root = root.right;<br>    <span class="hljs-keyword">return</span> root.val;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> TreeNode <span class="hljs-title function_">deleteNode</span><span class="hljs-params">(TreeNode root, <span class="hljs-type">int</span> key)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br><br>    <span class="hljs-comment">// delete from the right subtree</span><br>    <span class="hljs-keyword">if</span> (key &gt; root.val) root.right = deleteNode(root.right, key);<br>    <span class="hljs-comment">// delete from the left subtree</span><br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (key &lt; root.val) root.left = deleteNode(root.left, key);<br>    <span class="hljs-comment">// delete the current node</span><br>    <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// the node is a leaf</span><br>      <span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span> &amp;&amp; root.right == <span class="hljs-literal">null</span>) root = <span class="hljs-literal">null</span>;<br>      <span class="hljs-comment">// the node is not a leaf and has a right child</span><br>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (root.right != <span class="hljs-literal">null</span>) &#123;<br>        root.val = successor(root);<br>        root.right = deleteNode(root.right, root.val);<br>      &#125;<br>      <span class="hljs-comment">// the node is not a leaf, has no right child, and has a left child    </span><br>      <span class="hljs-keyword">else</span> &#123;<br>        root.val = predecessor(root);<br>        root.left = deleteNode(root.left, root.val);<br>      &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> root;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
-
                 
               </div>
             
@@ -320,7 +319,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>递归删除二叉搜索树</div>
       <div>http://example.com/2024/05/27/递归删除二叉搜索树/</div>
     </div>
     <div class="license-meta">
@@ -365,9 +364,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%AE%9E%E7%8E%B0/" title="">
+                      <a href="/2024/05/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%AE%9E%E7%8E%B0/" title="二叉树基本操作实现">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">二叉树基本操作实现</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -375,8 +374,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/27/LeetCode%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E8%8C%83%E5%9B%B4%E5%92%8C/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2024/05/27/LeetCode%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E8%8C%83%E5%9B%B4%E5%92%8C/" title="二叉搜索树的范围和">
+                        <span class="hidden-mobile">二叉搜索树的范围和</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
