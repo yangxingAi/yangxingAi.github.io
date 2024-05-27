@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Anh Tinh">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Java核心技术读书笔记一、Java程序基本设计结构 integer的范围不与机器是32位还是64位有关。  特殊转义字符:    转义序列 名称    \b 退格   \t 制表   \n 换行   \r 回车   \\ 反斜杠    要注意注释中的转义字符，有可能会报错。  强烈建议不使用char，最好将字符串作为抽象数据类型处理。有些字符占两个char。会导致程序报错。  整形和布尔类型不能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anh Tinh yêu vợ">
+<meta property="og:url" content="http://example.com/2024/05/27/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/index.html">
+<meta property="og:site_name" content="Anh Tinh yêu vợ">
+<meta property="og:description" content="Java核心技术读书笔记一、Java程序基本设计结构 integer的范围不与机器是32位还是64位有关。  特殊转义字符:    转义序列 名称    \b 退格   \t 制表   \n 换行   \r 回车   \\ 反斜杠    要注意注释中的转义字符，有可能会报错。  强烈建议不使用char，最好将字符串作为抽象数据类型处理。有些字符占两个char。会导致程序报错。  整形和布尔类型不能">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-27T03:28:53.267Z">
+<meta property="article:modified_time" content="2024-05-27T03:28:53.760Z">
+<meta property="article:author" content="Anh Tinh">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Anh Tinh yêu vợ</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Anh Tinh</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-27 11:28" pubdate>
+          2024年5月27日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Java核心技术读书笔记"><a href="#Java核心技术读书笔记" class="headerlink" title="Java核心技术读书笔记"></a>Java核心技术读书笔记</h1><h2 id="一、Java程序基本设计结构"><a href="#一、Java程序基本设计结构" class="headerlink" title="一、Java程序基本设计结构"></a>一、Java程序基本设计结构</h2><ol>
+<li><p>integer的范围不与机器是32位还是64位有关。</p>
+</li>
+<li><p>特殊转义字符:</p>
+<table>
+<thead>
+<tr>
+<th align="center">转义序列</th>
+<th align="center">名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>\b</code></td>
+<td align="center">退格</td>
+</tr>
+<tr>
+<td align="center"><code>\t</code></td>
+<td align="center">制表</td>
+</tr>
+<tr>
+<td align="center"><code>\n</code></td>
+<td align="center">换行</td>
+</tr>
+<tr>
+<td align="center"><code>\r</code></td>
+<td align="center">回车</td>
+</tr>
+<tr>
+<td align="center"><code>\\</code></td>
+<td align="center">反斜杠</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>要注意注释中的转义字符，有可能会报错。</p>
+</li>
+<li><p>强烈建议不使用char，最好将字符串作为抽象数据类型处理。有些字符占两个char。会导致程序报错。</p>
+</li>
+<li><p>整形和布尔类型不能进行转换。</p>
+</li>
+<li><p>整数除0将会产生异常，而浮点数除0将会得到无穷大或者NAN结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-number">2.0F</span>/<span class="hljs-number">0</span>);<br>结果为:System.out.println(<span class="hljs-number">2.0F</span>/<span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>二元运算时候，如果不进行类型转换将会有以下的情况：</p>
+<ul>
+<li>如果两个操作数有一个是double类型，那么另一个将会转成double。</li>
+<li>否则，如果有一个为float，那么另一个会被转成float。</li>
+<li>否则，如果有一个为long，那么另一个会被转成long。</li>
+<li>否则，两个操作数都会被转成int。</li>
+</ul>
+</li>
+<li><p>一旦创建了数组就不能再改变其大小，如果需要在运行过程中改变数组的大小，则需要使用另外一种数据结构—数组列表array list.</p>
+</li>
+<li><p>for each循环</p>
+<blockquote>
+<p>增强for循环得格式为： for(var :collection) { …..}</p>
+<p>collection这一集合得表达式必须是一个数组或者是一个实现了Iterable接口的类对象。</p>
+</blockquote>
+</li>
+<li><p>Java中允许数组长度为0，数组长度为0与null不同。</p>
+</li>
+<li><p>数组拷贝</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] smallPriems=&#123;<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>&#125;;<br><span class="hljs-type">int</span>[] luckNumbers = smallPriems;<br>luckNumbers[<span class="hljs-number">5</span>] = <span class="hljs-number">12</span>;<span class="hljs-comment">//现在smallPriems[5] 也是12</span><br><span class="hljs-comment">//如果希望将一个数组的所有制拷贝到新数组里就要使用Arrays的copyOf()</span><br><span class="hljs-type">int</span>[] copiedLuckyNumbers = Arrays.copyOf(luckNumbers,luckNumbers.length);<br><span class="hljs-comment">//第二个参数是数组的长度，通常用来扩容数组,如果是数值类型那么多余的元素就是0，如果是布尔类型就是false</span><br><span class="hljs-type">int</span>[] copiedLuckyNumbers = Arrays.copyOf(luckNumbers,luckNumbers.length);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>String[] args</p>
+<blockquote>
+<p>Java程序main方法里的String[] args参数代表main方法接收一个字符串数组，也就是命令行参数。</p>
+<p>比如看下面这个程序:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Message</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>        <span class="hljs-keyword">if</span>(ars.length == <span class="hljs-number">0</span> || args[<span class="hljs-number">0</span>].equals(<span class="hljs-string">&quot;-h&quot;</span>))&#123;<br>            System.out.print(<span class="hljs-string">&quot;Hello&quot;</span>);<br>        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(args[<span class="hljs-number">0</span>].equals(<span class="hljs-string">&quot;-g&quot;</span>))&#123;<br>            System.out.print(<span class="hljs-string">&quot;GoodBye&quot;</span>);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;i&lt;args.length;i++)&#123;<br>                 System.out.print(<span class="hljs-string">&quot;&quot;</span> + args[i]);<br>                 System.out.println(<span class="hljs-string">&quot;!&quot;</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-comment">//使用java Message -g cruel world 运行程序</span><br><span class="hljs-comment">//args[0]:&quot;-g&quot;    args[1]:&quot;cruel&quot;   args[2]:world</span><br><span class="hljs-comment">//因此输出GoodBye,cruel world!</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>数组排序</p>
+<blockquote>
+<p>要相对数值型数组进行排序，可以使用Arrays类中的sort方法:这个方法使用了优化的快速排序算法。</p>
+</blockquote>
+</li>
+<li><p>二维数组</p>
+<p>要想快速打印二维数组的数据元素列表可以使用<code>Arrarys.deepToString(arr);</code></p>
+</li>
+<li><p>Java实际上没有多维数组，只有一维数组。多维数组被解释为”数组的数组”.</p>
+</li>
+</ol>
+<h2 id="二、对象与类"><a href="#二、对象与类" class="headerlink" title="二、对象与类"></a>二、对象与类</h2><p>1.注意不要编写返回引用可变对象的访问器方法。例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Employee</span>&#123;<br>    <span class="hljs-keyword">private</span> Date hireDay;<br>    <span class="hljs-keyword">public</span> Date <span class="hljs-title function_">getHireDay</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> hireDay;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Date对象是可变的，这一点就破坏了封装性。比如我们这样操作:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Employee</span> <span class="hljs-variable">harry</span> <span class="hljs-operator">=</span> ....;<br><span class="hljs-type">Date</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> harry.getHireDay();<br>d.setTime(d.getTime());<br></code></pre></td></tr></table></figure>
+
+<p>此时d和hireDay指向同一个Date对象，对d调用更改器方法就可以改变这个私有变量的值。</p>
+<p>正确的做法应该是返回一个Date对象的克隆。比如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Employee</span>&#123;<br>    <span class="hljs-keyword">private</span> Date hireDay;<br>    <span class="hljs-keyword">public</span> Date <span class="hljs-title function_">getHireDay</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> (Date)hireDay.clone();<span class="hljs-comment">//返回一个克隆</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p>final定义的变量必须被初始化，一旦赋值就不能被更改。final定义的引用变量呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">fianlDemo</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testFinal</span><span class="hljs-params">()</span>&#123;<br>        s.append(<span class="hljs-string">&quot;222&quot;</span>);<br>        System.out.println(s.toString());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>依然会输出<code>222</code>，final定义的s引用变量指向StringBuilder对象，且不可被更改，但是s还是可以添加值得。</p>
+</li>
+<li><p>Static静态域</p>
+<blockquote>
+<p>如果将域定义为static，每个类中只有一个这样得域。静态域里的值被所有对象共享，它属于类，但是不属于任何独立的对象。</p>
+</blockquote>
+</li>
+<li><p>静态方法</p>
+<blockquote>
+<p>静态方法是一种不能向对象实施操作的方法。比如Math的pow方法就是一个静态方法，表达式Math.pow(a,2)，计算a的平方。在运算的时候不使用任何Math对象。</p>
+<p>静态方法不能访问实例域因为不能操作对象，但是静态方法可以访问自己类里的静态域。</p>
+</blockquote>
+<p>在下面两种情况下使用静态方法:</p>
+<ul>
+<li>一个方法不需要访问对象状态，其所需参数都是显示参数提供。</li>
+<li>一个方法只需要访问类的静态域。</li>
+</ul>
+</li>
+<li><h6 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h6><blockquote>
+<p>静态方法还有另一种常见的用途。比如NumberFormat类使用工厂方法生成不同风格的格式化对象。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testFactory</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">NumberFormat</span> <span class="hljs-variable">currencyInstance</span> <span class="hljs-operator">=</span> NumberFormat.getCurrencyInstance();<br>    <span class="hljs-type">NumberFormat</span> <span class="hljs-variable">percentInstance</span> <span class="hljs-operator">=</span> NumberFormat.getPercentInstance();<br>    <span class="hljs-type">double</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;<br>    System.out.println(currencyInstance.format(x));<span class="hljs-comment">//￥1.00</span><br>    System.out.println(percentInstance.format(x));<span class="hljs-comment">//100%</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>为什么NumberFormat不使用构造器完成这些操作呢？主要由两个原因：</p>
+<ul>
+<li>无法命名构造器。构造器的名字与类名相同。但是这里希望将得到的货币实例和百分比实例有不同的名字。</li>
+<li>当使用构造器时，无法改变所构造的对象类型。而Factory方法返回一个DecimalFormat对象，这个是NumberFormat的子类。</li>
+</ul>
+</li>
+<li><p>方法参数</p>
+<blockquote>
+<p>Java程序设计语言总是按值调用。也就是说，方法得到 的是一个参数值的拷贝，特别是，方法不能修改传递给它任何参数变量的内容。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.seanyang.finalDemo;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestParam</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">/**</span><br><span class="hljs-comment">         * 方法不能修改基本数据类型的参数</span><br><span class="hljs-comment">         */</span><br>        System.out.println(<span class="hljs-string">&quot;Testing tripleValue:&quot;</span>);<br>        <span class="hljs-type">double</span> <span class="hljs-variable">percent</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br>        System.out.println(<span class="hljs-string">&quot;Before: percent = &quot;</span> + percent);<br>        tripleValue(percent);<br>        System.out.println(<span class="hljs-string">&quot;After: percent = &quot;</span>+ percent);<br>        <span class="hljs-comment">/**</span><br><span class="hljs-comment">         * 方法可以改变对象参数的状态</span><br><span class="hljs-comment">         */</span><br>        System.out.println(<span class="hljs-string">&quot;Testing triple salary&quot;</span>);<br>        <span class="hljs-type">Employee</span>  <span class="hljs-variable">harry</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Employee</span>(<span class="hljs-string">&quot;harry&quot;</span>,<span class="hljs-number">50000</span>);<br>        System.out.println(<span class="hljs-string">&quot;Before : salary  =&quot;</span> + harry.getSalary());<br>        tripleSalary(harry);<br>        System.out.println(<span class="hljs-string">&quot;After : salary =&quot;</span> + harry.getSalary());<br>        <span class="hljs-comment">/**</span><br><span class="hljs-comment">         *一个方法不能让对象参数引用一个新的对象参数</span><br><span class="hljs-comment">         */</span><br>        System.out.println(<span class="hljs-string">&quot;Testing swap&quot;</span>);<br>        <span class="hljs-type">Employee</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Employee</span>(<span class="hljs-string">&quot;alice&quot;</span>,<span class="hljs-number">70000</span>);<br>        <span class="hljs-type">Employee</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Employee</span>(<span class="hljs-string">&quot;bob&quot;</span>,<span class="hljs-number">60000</span>);<br>        System.out.println(<span class="hljs-string">&quot;Before a = &quot;</span> + a.getName());<br>        System.out.println(<span class="hljs-string">&quot;Before b = &quot;</span> + b.getName());<br>        swap(a,b);<br>        System.out.println(<span class="hljs-string">&quot;After: a = &quot;</span>+a.getName());<br>        System.out.println(<span class="hljs-string">&quot;After: b = &quot;</span>+b.getName());<br><br><br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">swap</span><span class="hljs-params">(Employee x, Employee y)</span> &#123;<br>        <span class="hljs-type">Employee</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span>x ;<br>        x= y;<br>        y = temp;<br>        System.out.println(<span class="hljs-string">&quot;end of method : x= &quot;</span>+x.getName());<br>        System.out.println(<span class="hljs-string">&quot;end of method : y= &quot;</span>+y.getName());<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">tripleSalary</span><span class="hljs-params">(Employee x)</span> &#123;<br>        x.raiseSalary(<span class="hljs-number">200</span>);<br>        System.out.println(<span class="hljs-string">&quot;end of mehtod : salary&quot;</span> + x.getSalary());<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">tripleValue</span><span class="hljs-params">(<span class="hljs-type">double</span> x)</span> &#123;<br>        x = x *<span class="hljs-number">3</span>;<br>        System.out.println(<span class="hljs-string">&quot;end of method : percent = &quot;</span> + x);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span>  <span class="hljs-title class_">Employee</span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> salary;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Employee</span><span class="hljs-params">(String name, <span class="hljs-type">double</span> salary)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>        <span class="hljs-built_in">this</span>.salary = salary;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getSalary</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> salary;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">raiseSalary</span><span class="hljs-params">(<span class="hljs-type">double</span> byPercent)</span>&#123;<br>        <span class="hljs-type">double</span> <span class="hljs-variable">raise</span> <span class="hljs-operator">=</span> salary * byPercent /<span class="hljs-number">100</span>;<br>        salary += raise;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>输出结果为:</p>
+<blockquote>
+<p>Testing tripleValue:<br>Before: percent &#x3D; 10.0<br>end of method : percent &#x3D; 30.0<br>After: percent &#x3D; 10.0<br>Testing triple salary<br>Before : salary  &#x3D;50000.0<br>end of mehtod : salary150000.0<br>After : salary &#x3D;150000.0<br>Testing swap<br>Before a &#x3D; alice<br>Before b &#x3D; bob<br>end of method : x&#x3D; bob<br>end of method : y&#x3D; alice<br>After: a &#x3D; alice<br>After: b &#x3D; bob</p>
+</blockquote>
+</li>
+<li><p>重载</p>
+<blockquote>
+<p>如果多个方法有相同的名字不同的参数，便产生了重载。</p>
+<p>编译器必须挑选出具体执行哪个方法 ，它通过用各个方法给出的参数类型与特定方法调用所使用的值类型进行匹配来挑选出相应的方法。</p>
+<p>Java允许重载任何方法，不只是构造器方法，因此要完整描述方法需要指出方法名以及参数类型。</p>
+</blockquote>
+</li>
+<li><p>良好的编程习惯：显示初始化域。</p>
+</li>
+<li><p>注意域隐藏问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Employee</span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;<br>    <span class="hljs-comment">//参数是name，和成员变量名字相同。</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Employee</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age)</span> &#123;<br>        name = name;<br>        age = age;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Employee</span><span class="hljs-params">()</span>&#123;&#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAge</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> age;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>类设计技巧：</p>
+<ul>
+<li>一定要保证数据私有。</li>
+<li>一定要对数据进行初始化。</li>
+<li>不要在类中使用过多的基本类型。</li>
+<li>不是所有的域都需要独立的域访问器和域更改器。</li>
+<li>将职责过多的类进行分解。</li>
+<li>类名和方法名要能体现他们的职责。</li>
+<li>优先使用不可变的类。</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、继承"><a href="#三、继承" class="headerlink" title="三、继承"></a>三、继承</h2><ol>
+<li><p>spuer并不是一个对象的引用，不能将super赋给另一个对象变量，它只是一个指示编译器调用超类方法的特殊关键字。</p>
+</li>
+<li><p>由于子类的构造器不能访问父类的私有域，所以必须利用父类的构造器对这部分进行初始化，我们可以利用super实现对超类构造器的调用。使用super调用构造器必须在方法的第一行。</p>
+<p>如果子类的构造器没有显示的调用超类的构造器，则将自动调用超类默认（无参）构造器。如果超类没有无参构造器，并且在子类中没有显示调用超类其他构造，则编译器出错。</p>
+</li>
+<li><p>一个对象变量可以指示多种实际类型的现象被称为多态。在运行时能够自动调用哪个方法的现象被称为动态绑定。</p>
+</li>
+<li><p>可协变的返回类型</p>
+<blockquote>
+<p>如果在子类中定义了一个与超类签名相同的方法，那么子类中的方法就覆盖了超类中的这个相同签名的方法。不过返回类型不是签名的一部分，因此在覆盖方法时，一定要保证返回类型的兼容性。允许子类返回父类返回类型的子类型。</p>
+</blockquote>
+</li>
+<li><p>每次动态绑定调用方法时间开销很大，因此虚拟机创建了一个方法表，其中列出了所有方法的签名和实际调用的方法。这样一来实际调用这个方法的时候虚拟机仅查找这个表就好了。</p>
+</li>
+<li><p>关键字为 private，static，final的方法采用静态绑定。编译器可以准确知道调用哪个方法。 </p>
+</li>
+<li><p>将一个类声明为final，只有其中的方法自动转换成final，而不包括域。</p>
+</li>
+<li><p>如果方法很简短且被频繁调用，也没有真正被覆盖，那么即时编译器就会将这个方法进行内联处理。</p>
+</li>
+<li><p>将一个子类引用赋值给超类，编译器是允许的，而将一个超类引用赋值给子类，必须进行强制类型转换。</p>
+</li>
+<li><p>访问修饰符</p>
+</li>
+</ol>
+<blockquote>
+<p>仅对本类可见—private</p>
+<p>对所有类可见—public</p>
+<p>对本包和所有子类可见—protected</p>
+<p>对本包可见—（默认）不需要修饰符</p>
+</blockquote>
+<ol start="11">
+<li><p>equals方法</p>
+<blockquote>
+<p>Object中的equlas方法用来检测一个对象是否等于另一个对象。在object中这个方法判断两个对象是否具有相同的引用。如果两个对象的引用相同那么他们一定相等。</p>
+<p>然而对于大多数类来说，这样得判断没有什么意义。</p>
+<p>下面重写一个equals方法，如果雇员的姓名，工资和工龄相同就认为相等。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">equals</span><span class="hljs-params">(Object object)</span>&#123;<br>       <span class="hljs-comment">//如果当前对象引用和传入对象引用相等，那这两个对象一定相等。</span><br>       <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span> == object) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>       <span class="hljs-comment">//如果传入对象为null则不相等</span><br>       <span class="hljs-keyword">if</span> (object == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>       <span class="hljs-comment">//如果两个对象类型不一样则肯定不相等，getClass()返回一个对象所属的类</span><br>       <span class="hljs-keyword">if</span> (getClass() != object.getClass()) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>       <span class="hljs-comment">//执行到这里肯定是一个同类型的非空对象了，那么强制转换</span><br>       <span class="hljs-type">Employee</span> <span class="hljs-variable">employee</span> <span class="hljs-operator">=</span> (Employee)object;<br>    <span class="hljs-comment">//为了防止name和hireDay都可能为null,如果都是null，object.equals（）会返回true,如果其中一个为null,则返回fasle,如果都不为null，则调用a.equals(b)</span><br>       <span class="hljs-keyword">return</span> Object.equals(name,employee.name)&amp;&amp;<br>           salary == employee.salary &amp;&amp; Object.equals(hireDay,employee.hireDay);<br>		&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在子类中定义equals方法，首先调用超类的equals。如果检测失败对象就不可能相等。如果超类的域都相等那么比较子类的域。</p>
+</li>
+<li><p>Java要求equals方法具有以下的特性：</p>
+<blockquote>
+<p>1)自反性：对于任何非空引用x, x.equals(x)应该返回true</p>
+<p>2)对称性：对于任何引用x和y，x.equals(y)返回true那么y.equals(x)也应该返回true</p>
+<p>3)传递性：对任何应用x,y,z,如果x.equals(y)返回true,y.equals(z)返回true,那么x.equals(z)也应该返回true</p>
+<p>4)一致性：如果x和y引用的对象没有发生变化，反复调用x.equals(y)应该返回同样的结果。</p>
+<p>5)对于任何非空引用x, x.equals(null)应该返回false</p>
+</blockquote>
+</li>
+<li><p>hashcode方法</p>
+<blockquote>
+<p>如果重新定义equals方法就必须重写hashcode方法。如果x.equals(y)返回true,那么x.hashcode()一定等于y.hashcode()</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">hashcode</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">return</span> Object.hash(name,salary,hireDay);<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>toString方法</p>
+<blockquote>
+<p>随处可见toSting方法的原因是：只要一个对象与一个字符串通过操作符”+”连接起来，就会自动调用toString方法，以便获得这个对象的字符串描述。</p>
+</blockquote>
+</li>
+<li><p>ArrayList</p>
+<blockquote>
+<p>ArrayList可以存储任意类型得对象，并且可以自动扩容。</p>
+<p>一旦确定数组列表得长度不再发生变化，就可以调用trimToSize方法。</p>
+<p>这个方法将存储区域得大小调整为当前元素数量所需要得存储空间数目。垃圾回收器回收多余的存储空间。</p>
+</blockquote>
+</li>
+<li><p>有一个技巧可以灵活扩展数组，又可以方便访问数组元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//首先创建一个数组，并添加所有的元素</span><br>ArrayList&lt;X&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><span class="hljs-keyword">while</span>(...)&#123;<br>    x = ....;<br>    list.add(x);<br>&#125;<br><span class="hljs-comment">//执行完所有操作后，使用toArray方法将数组元素拷贝到一个数组中</span><br>x[] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">x</span>[list.size()];<br>list.toArray(a);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>频繁在中间删除和添加数组列表效率很低，应该考虑链表数组。</p>
+</li>
+<li><p>装箱和拆箱是编译器认可的，而不是虚拟机。编译器在生成类的字节码文件中时，插入必要的方法调用。虚拟机只是执行这些字节码。</p>
+</li>
+<li><p>反射的功能可以用来：</p>
+<ul>
+<li>在运行时分析类的能力</li>
+<li>在运行时查看对象，例如编写一个toString方法供所有类使用</li>
+<li>实现通用的数组操作代码</li>
+<li>利用Method对象。</li>
+</ul>
+</li>
+<li><p>Class类</p>
+<p>在程序运行期间，Java运行时系统为所有的对象维护一个被称为运行时的类型标识。这个信息跟踪着每个对象所属的类。虚拟机利用运行时类型信息选择相应的方法执行。</p>
+</li>
+<li><p>利用反射分析类的能力</p>
+<p>Class类中的<code>getFileds</code>,<code>getMethods</code>,<code>getConstructors</code>方法将分别返回类提供的public域，方法和构造器数组，其中包括超类的公有成员。Class<code>getDeclareFileds</code>,<code>getDeclareMethods</code>,<code>getDeclareConstructors</code>将分别返回类中声明的全部域，方法和构造器，其中包括私有和受保护成员，但不包括超类的成员。</p>
+</li>
+<li><p>查看对象域</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//创建雇员对象</span><br><span class="hljs-type">Employee</span> <span class="hljs-variable">harry</span> <span class="hljs-operator">=</span>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Employee</span>(<span class="hljs-string">&quot;harry hacker&quot;</span>,<span class="hljs-number">35000</span>,<span class="hljs-number">10</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1989</span>);<br><span class="hljs-comment">//获取类信息</span><br>Class cl= harry.getClass();<br><span class="hljs-comment">//获取域对象</span><br><span class="hljs-type">Filed</span> <span class="hljs-variable">f</span> <span class="hljs-operator">=</span> cl.getDeclareFiled(<span class="hljs-string">&quot;name&quot;</span>);<br><span class="hljs-comment">//因为name私有</span><br>f.setAccessible(<span class="hljs-literal">true</span>);<br><span class="hljs-comment">//返回harry里name的值</span><br><span class="hljs-type">Object</span> <span class="hljs-variable">v</span> <span class="hljs-operator">=</span> f.get(harry);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用反射编写泛型数组代码</p>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2024/05/27/java核心技术读书笔记(持续更新)/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Anh Tinh</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/27/%E5%89%91%E6%8C%87offer25---%E5%90%88%E5%B9%B6%E9%93%BE%E8%A1%A8/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
