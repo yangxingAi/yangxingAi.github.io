@@ -224,6 +224,39 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2024/05/27/RocketMQ%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" target="_self">
+          RocketMQ如何实现分布式事务
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/27/RocketMQ%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" target="_self">
+        <div>
+          A服务也就是发送方发送half message 到 broker服务端 当A服务指导半消息发送成功后，开始执行本地事务 执行本地事务会有三种情况(1,执行成功 2，执行失败 3，网络等原因没有响应) 如果执行成功，返回commit 如果执行失败，返回rollback 如果没有收到响应，那么回查事务状态   根据事务的状态执行操作 如果commit，那么提交到订阅方 如果rollback，那么不
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-27 11:59" pubdate>
+              2024-05-27
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2024/05/27/%E9%AB%98%E5%B9%B6%E5%8F%91%E4%B8%8B%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A6%82%E4%BD%95%E9%99%90%E6%B5%81%E9%97%AE%E9%A2%98/" target="_self">
           高并发下微服务如何限流问题
         </a>
@@ -497,39 +530,6 @@
       <a class="index-excerpt index-excerpt__noimg" href="/2024/05/27/%E5%89%91%E6%8C%87offer---%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" target="_self">
         <div>
           题目描述： 用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead 操作返回 -1 )  题目代码：12345678910111213141516171819202122232425262728293031323334class solution&#1
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-05-27 11:29" pubdate>
-              2024-05-27
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/05/27/%E5%89%91%E6%8C%87offer15---%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/" target="_self">
-          ﻿二进制中1的个数
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/27/%E5%89%91%E6%8C%87offer15---%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/" target="_self">
-        <div>
-          题目描述： 请实现一个函数，输入一个整数，输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输入 9，则该函数输出 2。  题目思路： 当1&amp;0,0&amp;1,0&amp;0都等于0 只有1&amp;1才为1  所以我们可以循环判断输入整数与1相与的结果，如果结果为1，那么该数字的最右边一位肯定是1，否则为0. 当为1的时候，计数器++
         </div>
       </a>
 
